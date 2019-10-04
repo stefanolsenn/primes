@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "primes", "primes\primes.csproj", "{2106A2A2-C1F3-445E-89C6-D156733E8538}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prime.logic", "Prime.logic\Prime.logic.csproj", "{9A4DC8A1-8361-41C8-B094-752256C3FD0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{2106A2A2-C1F3-445E-89C6-D156733E8538}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2106A2A2-C1F3-445E-89C6-D156733E8538}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2106A2A2-C1F3-445E-89C6-D156733E8538}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A4DC8A1-8361-41C8-B094-752256C3FD0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4DC8A1-8361-41C8-B094-752256C3FD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4DC8A1-8361-41C8-B094-752256C3FD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4DC8A1-8361-41C8-B094-752256C3FD0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

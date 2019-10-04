@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Threading.Tasks;
+using Prime.logic;
 
 namespace primes
 {
     class Program
     {
-        static void Main(string[] args)
+        private IPrimeGenerator _generator = new PrimeGenerator();
+        static async Task Main()
         {
-            Console.WriteLine("Hello World!");
+            var program = new Program();
+            
+            
         }
+        
+        
     }
 }
