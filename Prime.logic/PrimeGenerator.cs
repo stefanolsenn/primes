@@ -19,7 +19,11 @@ namespace Prime.logic
 
         public List<long> GetPrimesParallel(long first, long last)
         {
-            throw new System.NotImplementedException();
+            var primes = new List<long>();
+            Parallel.For(first, last, ctr => {
+                if (IsPrime(ctr)) primes.Add(ctr);
+            });
+            return primes;
         }
 
         private bool IsPrime(long number)
