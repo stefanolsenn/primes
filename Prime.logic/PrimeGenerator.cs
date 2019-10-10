@@ -32,13 +32,13 @@ namespace Prime.logic
         public List<long> GetPrimesParallelPartitioned(long first, long last)
         {
 
-            var src = CreateRange(first, last);
+          //  var src = CreateRange(first, last);
             var primes = new List<long>();
           
-            var customPartitioner = Partitioner.Create(0, src.ToList().Count);
+            var customPartitioner = Partitioner.Create(first, last);
             Parallel.ForEach(customPartitioner, range =>
             {
-                for (int i = range.Item1; i < range.Item2; i++)
+                for (long i = range.Item1; i < range.Item2; i++)
                     if (IsPrime(i)) primes.Add(i);
             });             return primes;
         }
