@@ -16,6 +16,15 @@ namespace primes
             var program = new Program();
 
             var userInput = program.GetRangeInput();
+            while (!program.InputIsValid(userInput)) {
+                Console.Clear();
+                Console.WriteLine("Input not valid. Press enter to continue");
+                Console.ReadLine();
+                Console.Clear();
+                userInput = program.GetRangeInput();
+            }
+
+
             Console.Write("Primes seq: ");
             Console.WriteLine();
             var seq = program.StartTask(userInput[0],userInput[1]);
@@ -97,12 +106,21 @@ namespace primes
 
         long[] GetRangeInput() {
             long[] set = new long[2];
+            Console.WriteLine("Enter range start value");
             var first = long.Parse( Console.ReadLine());
+            Console.WriteLine("Enter range end value");
             var last = long.Parse( Console.ReadLine());
+            Console.WriteLine();
             set[0] = first;
             set[1] = last;
             return set;
-            
+        }
+
+        bool InputIsValid(long[] set) {
+            if (set[0] > set[1]) {
+                return false;
+            }
+            return true;
         }
 
         public T Watch<T>(Func<T> action)
