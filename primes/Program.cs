@@ -15,15 +15,20 @@ namespace primes
         {
             var program = new Program();
 
-            var userInput = program.GetRangeInput();
-            while (!program.InputIsValid(userInput)) {
-                Console.Clear();
-                Console.WriteLine("Input not valid. Press enter to continue");
-                Console.ReadLine();
-                Console.Clear();
-                userInput = program.GetRangeInput();
+            bool isValid = false;
+            var userInput = new long[2];
+            while (isValid == false) {
+                try {
+                    userInput = program.GetRangeInput();
+                    if (program.InputIsValid(userInput)) {
+                        isValid = true;
+                    } else {
+                        program.NotValidMessage("Lower range must be a smaller number than the upper range. Press enter to continue");
+                    }
+                } catch (Exception ex) {
+                    program.NotValidMessage("Input not valid. Press enter to continue");
+                }
             }
-
 
             Console.Write("Primes seq: ");
             Console.WriteLine();
@@ -43,6 +48,13 @@ namespace primes
             Console.WriteLine();
             Console.ReadLine();   
 
+        }
+
+        void NotValidMessage(string message) {
+            Console.Clear();
+            Console.WriteLine(message);
+            Console.ReadLine();
+            Console.Clear();
         }
 
         void ShowGuiStuff(Task task) {
