@@ -129,7 +129,7 @@ namespace primes
         }
 
         bool InputIsValid(long[] set) {
-            if (set[0] > set[1]) {
+            if (set[0] >= set[1]) {
                 return false;
             }
             return true;
