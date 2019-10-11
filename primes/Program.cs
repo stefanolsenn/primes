@@ -19,30 +19,24 @@ namespace primes
             Console.Write("Primes seq: ");
             Console.WriteLine();
             var seq = program.StartTask(userInput[0],userInput[1]);
-            program.ShowGuiStuff(userInput[0],userInput[1], seq);
-            //var seqRes = seq.Result;
+            program.ShowGuiStuff(seq);
 
             Console.Write("Parallel primes seq: ");
             Console.WriteLine();
             var seq2 = program.StartTaskPrimesParallel(userInput[0], userInput[1]);
-            program.ShowGuiStuff(userInput[0], userInput[1], seq2);
-            //var seqRes = seq.Result;
+            program.ShowGuiStuff(seq2);
 
             Console.Write("Parallel partitioned primes seq: ");
             Console.WriteLine();
             var seq3 = program.StartTaskPrimesParallelPartitioned(userInput[0], userInput[1]);
-            program.ShowGuiStuff(userInput[0], userInput[1], seq3);
-            //var seqRes = seq.Result;
+            program.ShowGuiStuff(seq3);
 
             Console.WriteLine();
             Console.ReadLine();   
 
         }
 
-        void ShowGuiStuff(long start, long end, Task task) {
-            long first = 10;
-            long last = 100_000_0;
-
+        void ShowGuiStuff(Task task) {
             var i = 0;
             bool reset = false;
             while (task.Status != TaskStatus.RanToCompletion) {
@@ -97,8 +91,6 @@ namespace primes
 
         async Task<List<long>> StartTask(long first, long last) {
             var seq = await Task.Run(() => Watch(() => _generator.GetPrimesSequential(first, last)));
-            //var seq = await Task.Run(() => Watch(() => _generator.GetPrimesSequential(first, last)));
-            //var seq = program.Watch(() => program._generator.GetPrimesSequential(userInput[0], userInput[1]));
 
             return seq;
         }
