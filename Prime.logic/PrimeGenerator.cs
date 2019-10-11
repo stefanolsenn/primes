@@ -15,7 +15,7 @@ namespace Prime.logic
             {
                 if (IsPrime(i)) primes.Add(i);
             }
-
+            primes.Sort();
             return primes;
         }
 
@@ -26,33 +26,24 @@ namespace Prime.logic
             {
                 if (IsPrime(ctr)) primes.Add(ctr);
             });
+            primes.Sort();
             return primes;
         }
 
         public List<long> GetPrimesParallelPartitioned(long first, long last)
         {
-
-          //  var src = CreateRange(first, last);
             var primes = new List<long>();
-          
             var customPartitioner = Partitioner.Create(first, last);
-            Parallel.ForEach(customPartitioner, range =>
-            {
-                for (long i = range.Item1; i < range.Item2; i++)
-                    if (IsPrime(i)) primes.Add(i);
-            });             return primes;
+                Parallel.ForEach(customPartitioner, range =>
+                {
+                    for (long i = range.Item1; i < range.Item2; i++)
+                        if (IsPrime(i)) primes.Add(i);
+                });
+         
+            primes.Sort();            return primes;
         }
 
-        private IEnumerable<long> CreateRange(long start, long count)
-        {
-            var limit = start + count;
-
-            while (start < limit)
-            {
-                yield return start;
-                start++;
-            }
-        }
+  
 
         private bool IsPrime(long number)
         {
