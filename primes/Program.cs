@@ -97,8 +97,11 @@ namespace primes
 
         long[] GetRangeInput() {
             long[] set = new long[2];
+            Console.WriteLine("Enter range start value");
             var first = long.Parse( Console.ReadLine());
+            Console.WriteLine("Enter range end value");
             var last = long.Parse( Console.ReadLine());
+            Console.WriteLine();
             set[0] = first;
             set[1] = last;
             return set;
